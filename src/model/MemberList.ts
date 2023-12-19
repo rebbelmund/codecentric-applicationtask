@@ -15,7 +15,6 @@ export default class MemberList implements IMemberList {
 
     static instance: MemberList = new MemberList()
 
-
     constructor (private _members: Member[] = []){}
 
     get members(): Member[] {
@@ -41,7 +40,7 @@ export default class MemberList implements IMemberList {
                 const parsedList = JSON.parse(storedList)
                 parsedList.forEach((member : any)=> {
                     const langList: Language[] = []
-                    member._languages.forEach((language: any)=> langList.push(new Language(language._name, language.projectCount)))
+                    member._languages.forEach((language: any)=> langList.push(new Language(language._name, language._projectCount)))
                     const newMember = new Member(member._id, member._login, member._name, langList)
                     MemberList.instance.addMember(newMember)
                 })
@@ -63,7 +62,7 @@ export default class MemberList implements IMemberList {
           },
         })
       }
-    
+      
       async getLanguages(repos_url: string): Promise<Language[]> {
         return this._axiosGet(repos_url).then((response: any) => {
           return new Promise((resolve, reject) => {
