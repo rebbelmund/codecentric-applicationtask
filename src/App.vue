@@ -10,7 +10,6 @@ const members = ref<Array<MemberModel>>([])
 onMounted(()=>{
   memList.load().then(mems => {
     members.value = mems
-    // console.log('mems',mems)
   })
 })
 </script>

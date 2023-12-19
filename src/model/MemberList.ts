@@ -34,7 +34,7 @@ export default class MemberList implements IMemberList {
     }
 
     async load(): Promise<Member[]> {
-        return new Promise((resolve, reject) => {
+       return new Promise((resolve, reject) => {
             const storedList: string | null = localStorage.getItem(STORAGE_VAR)
             if (typeof storedList === 'string') {
                 const parsedList = JSON.parse(storedList)
@@ -82,7 +82,15 @@ export default class MemberList implements IMemberList {
                 }),
               )
             })
-            Promise.all(promises).then(() => resolve(langProjects as Language[]))
+            Promise.all(promises).then(() => resolve(langProjects.sort((a, b) => {
+                if (a.projectCount < b.projectCount) {
+                  return 1;
+                }
+                if (a.projectCount > b.projectCount) {
+                  return -1;
+                }
+                return 0;
+              }) as Language[]))
           })
         })
       }
@@ -110,20 +118,29 @@ export default class MemberList implements IMemberList {
         return new Promise((resolve, reject) => {
             this._axiosGet('https://api.github.com/orgs/codecentric/members').then((response: any) => {
             const promises: Promise<void>[] = []
-            // response.data.slice(0,2).forEach((member:any) => { // use while development to save on request limit
+            // response.data.slice(0, 5).forEach((member:any) => { // use while development to save on request limit
             response.data.forEach((member: any) => {
               promises.push(
                 this.getMemberData(member).then((newMember) => {
                     this.addMember(newMember)
+                    console.info('member added: ', newMember.id)
                 }),
               )
             })
             Promise.all(promises).then(() => {
+                this._members.sort((a, b) => {
+                    if ((a.name || a.login) < (b.name || b.login)) {
+                      return -1;
+                    }
+                    if ((a.name || a.login) > (b.name || b.login)) {
+                      return 1;
+                    }
+                    return 0;
+                  })
                 this.save()
                 resolve(this._members)
             })
           })
         })
       }
-    
 }
