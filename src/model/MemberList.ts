@@ -34,7 +34,7 @@ export default class MemberList implements IMemberList {
     }
 
     async load(): Promise<Member[]> {
-       return new Promise((resolve, reject) => {
+       return new Promise((resolve) => {
             const storedList: string | null = localStorage.getItem(STORAGE_VAR)
             if (typeof storedList === 'string') {
                 const parsedList = JSON.parse(storedList)
@@ -65,7 +65,7 @@ export default class MemberList implements IMemberList {
       
       async getLanguages(repos_url: string): Promise<Language[]> {
         return this._axiosGet(repos_url).then((response: any) => {
-          return new Promise((resolve, reject) => {
+          return new Promise((resolve) => {
             const langProjects:Language[] = []
             const promises: Promise<void>[] = []
             response.data.forEach((repo: any) => {
@@ -96,7 +96,7 @@ export default class MemberList implements IMemberList {
       }
     
       async getMemberData(member: any): Promise<Member> {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
           const newMember: Member = new Member(member.id, member.login)
     
           const promises: Promise<void>[] = []
@@ -115,7 +115,7 @@ export default class MemberList implements IMemberList {
       }
     
       public async getMemberStorage(): Promise<Member[]> {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             this._axiosGet('https://api.github.com/orgs/codecentric/members').then((response: any) => {
             const promises: Promise<void>[] = []
             // response.data.slice(0, 5).forEach((member:any) => { // use while development to save on request limit
