@@ -14,5 +14,7 @@
 <style lang="scss" scoped>
 nav {
   margin-bottom: 20px;
+  background-color: #22f4ae;
+  padding: 20px;
 }
 </style>

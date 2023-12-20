@@ -24,6 +24,7 @@ const filteredMems = computed(() => {
       })
       .map((mem) => ({
         id: mem.id,
+        login: mem.login,
         name: mem.name || mem.login,
         projectCount: mem.languages.find((lang) => lang.name === language.value)?.projectCount || 0,
       })) || []
@@ -35,8 +36,16 @@ const filteredMems = computed(() => {
   <div>
     Language
     <input v-model="language" />
-    <div v-for="mem in filteredMems" :key="mem.id">{{ mem.name }}: {{ mem.projectCount }}</div>
+    <div v-for="mem in filteredMems" :key="mem.id">
+      <router-link :to="'/member/'+mem.login">
+      {{ mem.name }}: {{ mem.projectCount }}
+      </router-link>
+    </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+input {
+  margin: 20px;
+}
+</style>

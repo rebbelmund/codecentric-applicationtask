@@ -3,6 +3,7 @@ import Language from './Language'
 export interface IMember {
   id: number
   login: string
+  avatar: string
   name: string
   languages: Language[]
 }
@@ -11,6 +12,7 @@ export default class Member implements IMember {
   constructor(
     private _id: number = 0,
     private _login: string = '',
+    private _avatar: string = '',
     private _name: string = '',
     private _languages: Language[] = [],
   ) {}
@@ -29,6 +31,14 @@ export default class Member implements IMember {
 
   set login(login: string) {
     this._login = login
+  }
+
+  get avatar(): string {
+    return this._avatar
+  }
+
+  set avatar(avatar: string) {
+    this._avatar = avatar
   }
 
   get name(): string {

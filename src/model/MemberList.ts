@@ -42,7 +42,7 @@ export default class MemberList implements IMemberList {
           member._languages.forEach((language: any) =>
             langList.push(new Language(language._name, language._projectCount)),
           )
-          const newMember = new Member(member._id, member._login, member._name, langList)
+          const newMember = new Member(member._id, member._login, member._avatar, member._name, langList)
           MemberList.instance.addMember(newMember)
         })
 
@@ -107,6 +107,7 @@ export default class MemberList implements IMemberList {
       promises.push(
         this._axiosGet(member.url).then((response: any) => {
           newMember.name = response.data.name
+          newMember.avatar = response.data.avatar_url
         }),
       )
       promises.push(

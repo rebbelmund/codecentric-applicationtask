@@ -13,12 +13,22 @@ const member = props.members?.find(mem=>mem.login === route.params.login)
 
 <template>
   <div v-if="member">
-    {{ member.name || member.login }}
+    <div class="name">
+      {{ member.name || member.login }}
+    </div>
+    <img :src="member.avatar" class="avatar"/>
     <Language v-for="lang in member.languages" :name="lang.name" :projectCount="lang.projectCount" class="language" />
   </div>
 </template>
 
 <style scoped>
+.name {
+  font-weight: bold;
+}
+.avatar {
+  height: 200px;
+  margin: 20px;
+}
 .language {
   margin-left: 100px;
 }
