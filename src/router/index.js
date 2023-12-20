@@ -1,4 +1,5 @@
 import MemberList from '../components/MemberList.vue'
+import Member from '../components/Member.vue'
 import Search from '../components/Search.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -7,6 +8,11 @@ const routes = [
     path: '/',
     name: 'MemberList',
     component: MemberList,
+  },
+  {
+    path: '/member/:login',
+    name: 'Member',
+    component: MemberDetail,
   },
   {
     path: '/search',

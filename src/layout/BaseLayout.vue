@@ -12,4 +12,7 @@
 </template>
 
 <style lang="scss" scoped>
+nav {
+  margin-bottom: 20px;
+}
 </style>

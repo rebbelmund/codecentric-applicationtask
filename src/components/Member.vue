@@ -1,17 +1,20 @@
 <script setup lang="ts">
 import Language from './Language.vue'
-import LanguageModel from '../model//Language.ts'
+import MemberModel from '../model/Member.ts'
+import { useRoute } from 'vue-router'
 
-defineProps({
-  name: { type: String, required: true },
-  languages: { type: Array<LanguageModel>, required: true },
+const props = defineProps({
+  members: { type: Array<MemberModel>, reqired: true },
 })
+
+const route = useRoute()
+const member = props.members?.find(mem=>mem.login === route.params.login)
 </script>
 
 <template>
-  <div>
-    {{ name }}
-    <Language v-for="lang in languages" :name="lang.name" :projectCount="lang.projectCount" class="language" />
+  <div v-if="member">
+    {{ member.name || member.login }}
+    <Language v-for="lang in member.languages" :name="lang.name" :projectCount="lang.projectCount" class="language" />
   </div>
 </template>
 
