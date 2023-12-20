@@ -6,11 +6,7 @@ defineProps({
 </script>
 
 <template>
-  <div>
-    {{ name }}: {{ projectCount }}
-  </div>
+  <div>{{ name }}: {{ projectCount }}</div>
 </template>
 
-<style scoped>
-</style>
-
+<style scoped></style>

@@ -15,36 +15,35 @@ export default class Member implements IMember {
     private _languages: Language[] = [],
   ) {}
 
-  get id():number {
+  get id(): number {
     return this._id
   }
 
-  set id(id:number) {
+  set id(id: number) {
     this._id = id
   }
 
-  get login():string {
+  get login(): string {
     return this._login
   }
 
-  set login(login:string) {
+  set login(login: string) {
     this._login = login
   }
 
-  get name():string {
+  get name(): string {
     return this._name
   }
 
-  set name(name:string) {
+  set name(name: string) {
     this._name = name
   }
 
-  get languages():Language[] {
+  get languages(): Language[] {
     return this._languages
   }
 
-  set languages(languages:Language[]) {
+  set languages(languages: Language[]) {
     this._languages = languages
   }
-
 }

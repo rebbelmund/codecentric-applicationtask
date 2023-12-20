@@ -4,15 +4,15 @@ import LanguageModel from '../model//Language.ts'
 
 defineProps({
   name: { type: String, required: true },
-    languages: { type: Array<LanguageModel>, required: true },
+  languages: { type: Array<LanguageModel>, required: true },
 })
 </script>
 
 <template>
   <div>
     {{ name }}
-    <Language v-for="lang in languages" :name="lang.name" :projectCount="lang.projectCount" class="language"/>
-   </div>
+    <Language v-for="lang in languages" :name="lang.name" :projectCount="lang.projectCount" class="language" />
+  </div>
 </template>
 
 <style scoped>
@@ -20,4 +20,3 @@ defineProps({
   margin-left: 100px;
 }
 </style>
-
