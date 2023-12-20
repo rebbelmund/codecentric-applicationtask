@@ -4,7 +4,6 @@ import LanguageModel from '../model//Language.ts'
 
 defineProps({
   name: { type: String, required: true },
-  // languages: { type: Array, required: true },
     languages: { type: Array<LanguageModel>, required: true },
 })
 </script>
