@@ -3,9 +3,6 @@ defineProps({
   name: { type: String, required: true },
   projectCount: { type: Number, required: true },
 })
-
-
-
 </script>
 
 <template>

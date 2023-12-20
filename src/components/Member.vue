@@ -12,7 +12,7 @@ defineProps({
   <div>
     {{ name }}
     <Language v-for="lang in languages" :name="lang.name" :projectCount="lang.projectCount" class="language"/>
-  </div>
+   </div>
 </template>
 
 <style scoped>
