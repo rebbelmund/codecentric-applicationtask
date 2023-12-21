@@ -58,7 +58,7 @@ export default class MemberList implements IMemberList {
       headers: {
         Accept: 'application/json',
         'content-type': 'application/x-www-form-urlencoded',
-        Authorization: 'Bearer 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', // TODO: get auth token from env file
+        Authorization: 'Bearer <replace with auth token>', // TODO: get auth token from env file
       },
     })
   }
