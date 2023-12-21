@@ -4,7 +4,7 @@ import MemberModel from '../model/Member.ts'
 import { useRoute } from 'vue-router'
 
 const props = defineProps({
-  members: { type: Array<MemberModel>, reqired: true },
+  members: { type: Array<MemberModel>, required: true},
 })
 
 const route = useRoute()

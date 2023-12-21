@@ -63,7 +63,7 @@ export default class MemberList implements IMemberList {
     })
   }
 
-  async getLanguages(repos_url: string): Promise<Language[]> {
+ getLanguages(repos_url: string): Promise<Language[]> {
     return this._axiosGet(repos_url).then((response: any) => {
       return new Promise((resolve) => {
         const langProjects: Language[] = []

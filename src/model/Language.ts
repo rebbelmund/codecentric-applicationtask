@@ -20,4 +20,8 @@ export default class Language implements ILanguage {
   set projectCount(projectCount: number) {
     this._projectCount = projectCount
   }
+
+  incrementProjectCount () {
+    this._projectCount++
+  }
 }
