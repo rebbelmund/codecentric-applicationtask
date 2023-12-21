@@ -51,6 +51,6 @@ const filteredMems = computed(() => {
 
 <style scoped>
 input {
-  margin: 20px;
+  margin: 1rem;
 }
 </style>
