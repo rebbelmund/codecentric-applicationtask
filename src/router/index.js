@@ -15,7 +15,7 @@ const routes = [
     component: Member,
   },
   {
-    path: '/search',
+    path: '/search/:search?',
     name: 'Search',
     component: Search,
   },

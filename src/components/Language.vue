@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-  <div>{{ name }}: {{ projectCount }}</div>
+  <div><RouterLink :to="'/search/'+name">{{ name }}</RouterLink>: {{ projectCount }}</div>
 </template>
 
 <style scoped></style>

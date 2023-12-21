@@ -15,7 +15,7 @@ defineProps({
       :name="member.name || member.login"
       :languages="member.languages as LanguageModel[]"
     >
-      <router-link :to="'/member/'+member.login">
+      <router-link :to="`/member/${member.login}`">
         {{ member.name || member.login }}
       </router-link>
     </div>
