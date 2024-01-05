@@ -1,4 +1,4 @@
-import Language from "./Language";
+import Language from "../Language";
 
 
 const lang:Language = new Language('lang', 1)

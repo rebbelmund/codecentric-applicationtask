@@ -58,7 +58,8 @@ export default class MemberList implements IMemberList {
       headers: {
         Accept: 'application/json',
         'content-type': 'application/x-www-form-urlencoded',
-        Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+        // Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+        Authorization: `Bearer ${process.env.VITE_GITHUB_TOKEN}`,
       },
     })
   }
